@@ -1,0 +1,10 @@
+.jumbotron {
+    background-image: url('/assets/img/ice-cream-bkg.jpg');
+    background-repeat: no-repeat;
+    min-height: 250px;
+    background-size: cover;
+}
+
+.jumbotron h1{
+    text-shadow: 0 0 10px #fff;  
+}
