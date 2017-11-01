@@ -1,5 +1,5 @@
 {
-  "name": "ice-cream-handlebars-orm-mvc",
+  "name": "ice-cream-sequelize",
   "version": "1.0.0",
   "description": "## Overview",
   "main": "index.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evasimon/ice-cream-handlebars-orm-mvc.git"
+    "url": "git+https://github.com/evasimon/ice-cream-sequelize.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/evasimon/ice-cream-handlebars-orm-mvc/issues"
+    "url": "https://github.com/evasimon/ice-cream-sequelize/issues"
   },
-  "homepage": "https://github.com/evasimon/ice-cream-handlebars-orm-mvc#readme",
+  "homepage": "https://github.com/evasimon/ice-cream-sequelize#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
