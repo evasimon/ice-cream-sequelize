@@ -33,7 +33,7 @@ var iceCreamController = require('./controllers/ice_cream_controller');
 iceCreamController(app, db);
 
 // syncs the sequelize models and then starting the Express app
-db.sequelize.sync().then(function () {
+db.sequelize.sync({}).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
