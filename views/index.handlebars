@@ -23,8 +23,19 @@ in `index.handlebars` that will submit the user input into the database. --}}
             <ul class="list-group">
                 {{#each ice_cream}}
                 <li class="list-group-item">
-                    {{this.id}}. {{this.ice_cream_name}}
-                    <button data-ice_cream_id="{{this.id}}" class="btn btn-success devour_ice_cream float-right">Devour It!</button>
+                    <div class="row">
+                        <div class="col-md-12 col-lg-6">
+                            {{this.id}}. {{this.ice_cream_name}}
+                        </div>
+                        <div class="col-md-12 col-lg-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="customer_name" placeholder="Enter Name">
+                                <div class="input-group-btn">
+                                    <button data-ice_cream_id="{{this.id}}" class="btn btn-success devour_ice_cream float-right">Devour It!</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
                 {{/each}}
             </ul>
@@ -35,7 +46,7 @@ in `index.handlebars` that will submit the user input into the database. --}}
             <ul class="list-group">
                 {{#each ice_cream_eaten}}
                 <li class="list-group-item">
-                    {{this.id}}. {{this.ice_cream_name}}
+                    {{this.id}}. {{this.ice_cream_name}} (Eaten by {{this.customer.customer_name}})
                 </li>
                 {{/each}}
             </ul>
@@ -48,8 +59,10 @@ in `index.handlebars` that will submit the user input into the database. --}}
 <script>
     $('.devour_ice_cream').on('click', function () {
         var id = $(this).data('ice_cream_id');
+        var customer = $(this).parent().closest('.input-group').children('.form-control').val();
+        console.log(customer);
 
-        $.ajax('/' + id, {
+        $.ajax('/' + id + '/' + customer, {
             type: 'PUT'
         }).then(
             function () {
