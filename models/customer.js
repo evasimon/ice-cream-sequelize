@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
     var Customer = sequelize.define("customer", {
-        // Giving the Customer model a name of type STRING
+        // giving the Customer model a name of type STRING
         customer_name: {
             type: DataTypes.STRING,
             allowNull: false,

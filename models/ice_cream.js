@@ -18,8 +18,8 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Icecream.associate = function (models) {
-        // We're saying that an Ice-Cream should belong to a Customer
-        //  can't be created without an Author due to the foreign key constraint
+        // each Ice-Cream should belong to a Customer
+        // ice cream can't be eaten without a Customer Name due to the foreign key constraint
         Icecream.belongsTo(models.customer, {
             foreignKey: {
                 allowNull: false
