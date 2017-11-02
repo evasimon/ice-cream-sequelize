@@ -1,5 +1,5 @@
- {{!-- * Setup the `index.handlebars` to have the template that Handlebars can render onto. --}} {{!-- * Create a button
-in `index.handlebars` that will submit the user input into the database. --}}
+ {{!-- Sets up the `index.handlebars`, template that Handlebars can render onto HTML. --}}
+
 <div class="jumbotron">
     <h1 class="text-center">Ice Cream Race!</h1>
 </div>
@@ -10,6 +10,7 @@ in `index.handlebars` that will submit the user input into the database. --}}
 
         <div class="col-md-6">
             <h3>Ice Cream List</h3>
+            {{!-- * Creates a button that will submit the user input into the database. --}}
             <form action="/" method="POST">
                 <div class="input-group">
                     <input type="text" class="form-control" name="ice_cream" placeholder="Enter Ice Cream Flavour">
@@ -20,7 +21,8 @@ in `index.handlebars` that will submit the user input into the database. --}}
                 </div>
             </form>
 
-            <ul class="list-group">
+            {{!-- Sets up the ice cream list that can be eaten by the user --}}
+            <ul class="list-group mt-3">
                 {{#each ice_cream}}
                 <li class="list-group-item">
                     <div class="row">
@@ -41,6 +43,7 @@ in `index.handlebars` that will submit the user input into the database. --}}
             </ul>
         </div>
 
+        {{!-- Sets up the devoured ice cream list --}}
         <div class="col-md-6">
             <h3>Devoured Ice Cream</h3>
             <ul class="list-group">
@@ -57,17 +60,19 @@ in `index.handlebars` that will submit the user input into the database. --}}
 </div>
 
 <script>
+    // once the devour button is clicked
     $('.devour_ice_cream').on('click', function () {
+        // gets the id of the ice cream and the cutomer name
         var id = $(this).data('ice_cream_id');
         var customer = $(this).parent().closest('.input-group').children('.form-control').val();
-        console.log(customer);
 
+        // sets a PUT ajax call to update the database
         $.ajax('/' + id + '/' + customer, {
             type: 'PUT'
         }).then(
             function () {
                 console.log("updated id ", id);
-                // Reload the page to get the updated list
+                // reloads the page to get the updated list
                 location.reload();
             }
             )
