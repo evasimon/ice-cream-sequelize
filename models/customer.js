@@ -1,3 +1,5 @@
+// creates an Customer model and
+// adds validation to the model
 module.exports = function (sequelize, DataTypes) {
     var Customer = sequelize.define("customer", {
         // giving the Customer model a name of type STRING

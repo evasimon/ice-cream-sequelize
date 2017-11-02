@@ -1,5 +1,5 @@
 // creates an Icecream model and
-// adds validation
+// adds validation to the model
 module.exports = function (sequelize, DataTypes) {
     var Icecream = sequelize.define("ice_cream", {
         ice_cream_name: {
