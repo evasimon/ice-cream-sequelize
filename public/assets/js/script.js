@@ -1,9 +1,10 @@
 $(document).ready(function () {
     $('#add-btn').on('click', function () {
+        // sets input validation
         var ice_cream_input = $('#ice-cream').val().trim();
         if (ice_cream_input === "") {
-            alert('Please enter your favourite an Ice Cream Flavour!');
-            return;
+            event.preventDefault()
+            alert('Please enter your favourite Ice Cream Flavour!');
         }
     })
     // once the devour button is clicked
